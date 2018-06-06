@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ワンクリック詐欺サイト</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div id="mesbox" class="collapse">
+		<div class="alert alert-success container">
+			<div class="progress progress-striped active">
+				<div id="bar" class="progress-bar progress-bar-success" style="width: 0%"></div>
+			</div>
+			<p id="message">写真を作成しました</p>
+		</div>
+	</div>
+
+	<div class="jumbotron" style="background: url('image/cover.jpg'); background-position: center;">
+		<dvi class="container">
+			<h1>儲ける方法</h1>
+			<h2>何もせずにつき３００万円稼ぐ方法があります．</h2>
+			<p>そんな夢のような方法を教えます．貴方も億万長者になりましょう．</p>
+			<p><a href="#mesbox" onclick="startLoad();" data-toggle="collapse" class="btn btn-primary btn-lg">もっと詳しく</a></p>
+		</dvi>
+	</div>
+	<hr>
+	<p class="text-muted text-center">Copyright (C) 2018 Yasugi</p>
+	<audio id="shutter" preload="auto">
+		<source src="sound/shutter.wav" type="audio/wav">
+	</audio>
+	<script>
+		var i = 0;
+		function startLoad() {
+			document.getElementById('shutter').play();
+			setInterval('loading()', 50);
+		}
+		function loading() {
+			switch(i) {
+				case 20: document.getElementById('message').innerHTML = '写真を送信中...';
+				break;
+				case 40: document.getElementById('message').innerHTML = 'IPアドレスを取得中...';
+				break;
+				case 60: document.getElementById('message').innerHTML = 'IPアドレスから住所特定中...';
+				break;
+				case 80: document.getElementById('message').innerHTML = '端末情報取得中...';
+				break;
+				case 90: document.getElementById('message').innerHTML = '情報送信中...';
+				break;
+				case 100: location.href="complete.html";
+				break;
+
+			}
+			document.getElementById('bar').style = 'width: ' + i + '%';
+			i++;
+		}
+	</script>
+</body>
+</html>
